@@ -4,7 +4,7 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 
 
-class UserProfile(models.Model) :
+class UserProfile(models.Model):
     ROLE_CHOICES = [
         ('ADMIN','Admin'),
         ('LIBRARIAN', 'Librarian'),

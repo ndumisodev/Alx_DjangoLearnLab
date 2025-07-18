@@ -18,12 +18,12 @@ class LibraryDetailView(DetailView) :
     context_object_name = 'library'
 
 
-class CustomLoginView(LoginView) :
+class LoginView(LoginView) :
     template_name = 'relationship_app/login.html'
     redirect_authenticated_user = True
 
 
-class CustomLogoutView(LogoutView) :
+class LogoutView(LogoutView) :
     template_name = 'relationship_app/logout.html'
 
 

@@ -4,10 +4,6 @@ from django.contrib.auth.views import LoginView, LogoutView
 from .views import (
     list_books, 
     LibraryDetailView,
-    # LoginView,
-    # LogoutView,
-    # RegisterView,
-    register
 )
 from . import views
 

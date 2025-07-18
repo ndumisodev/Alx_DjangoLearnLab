@@ -6,7 +6,9 @@ from .views import (
     LibraryDetailView,
 )
 from . import views
-
+from .admin_view import admin_view
+from .librarian_view import librarian_view
+from .member_view import member_view
 
 
 
@@ -19,7 +21,7 @@ urlpatterns = [
     path('logout/', LogoutView.as_view(template_name='relationship_app/logout.html'), redirect_authenticated_user=True, name='logout'),
     path('register/', views.register, name='register'),
 
-    path('admin/', views.admin_view, name='admin_view'),
-    path('librarian/', views.librarian_view, name='librarian_view'),
-    path('member/', views.member_view, name='member_view'),
+    path('admin/',views. admin_view, name='admin_dashboard'),
+    path('librarian/', views.librarian_view, name='librarian_dashboard'),
+    path('member/', views.member_view, name='member_dashboard'),
 ]

@@ -20,24 +20,24 @@ class LibraryDetailView(DetailView) :
     context_object_name = 'library'
 
 
-class LoginView(LoginView) :
-    template_name = 'relationship_app/login.html'
-    redirect_authenticated_user = True
+# class LoginView(LoginView) :
+#     template_name = 'relationship_app/login.html'
+#     redirect_authenticated_user = True
 
 
-class LogoutView(LogoutView) :
-    template_name = 'relationship_app/logout.html'
+# class LogoutView(LogoutView) :
+#     template_name = 'relationship_app/logout.html'
 
 
-class RegisterView(CreateView) :
-    form_class = UserCreationForm
-    template_name = 'relationship_app/register.html'
-    success_url = reverse_lazy('list_books')
+# class RegisterView(CreateView) :
+#     form_class = UserCreationForm
+#     template_name = 'relationship_app/register.html'
+#     success_url = reverse_lazy('list_books')
 
-    def form_valid(self, form) :
-        response = super().form_valid(form)
-        login(self.request, self.object)
-        return response
+#     def form_valid(self, form) :
+#         response = super().form_valid(form)
+#         login(self.request, self.object)
+#         return response
 
 
 def register(request):

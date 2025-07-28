@@ -12,7 +12,7 @@ class Book(models.Model):
     
 
 
-class CustomUserManager(BaseUserManager) :
+class CustomUserManager(BaseUserManager):
     def create_user(self, username, email, password=None,**extra_fields) :
         if not email:
             raise ValueError("Provide an email")

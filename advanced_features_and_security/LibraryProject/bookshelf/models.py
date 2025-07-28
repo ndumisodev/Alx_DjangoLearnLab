@@ -1,4 +1,6 @@
 from django.db import models
+from django.contrib.auth.models import AbstractUser, BaseUserManager
+
 
 class Book(models.Model):
     title = models.CharField(max_length=200)
@@ -30,7 +32,7 @@ class CustomUserManager(BaseUserManager) :
         return self.create_user(username, email, password, **extra_fields)
 
 
-class CustomUser(AbstractUser) :
+class CustomUser(AbstractUser):
     email = models.EmailField(unique=True)
     date_of_birth = models.DateField(null=True, blank=True)
     profile_photo = models.ImageField(upload_to='profile_photos/', null=True, blank=True)

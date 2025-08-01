@@ -24,3 +24,22 @@ def edit_book(request, pk):
 def delete_book(request, pk):
   
     return render(request, 'bookshelf/delete_book.html')
+
+
+from django.shortcuts import render
+from .forms import ExampleForm
+
+def example_form_view(request):
+    if request.method == 'POST':
+        form = ExampleForm(request.POST)
+        if form.is_valid():
+            # Process the form data
+            name = form.cleaned_data['name']
+            email = form.cleaned_data['email']
+            message = form.cleaned_data['message']
+            # Do something with the data
+            return render(request, 'bookshelf/form_success.html')
+    else:
+        form = ExampleForm()
+    
+    return render(request, 'bookshelf/form_example.html', {'form': form})

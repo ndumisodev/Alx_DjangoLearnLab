@@ -1,0 +1,22 @@
+<form method="post">
+    {% csrf_token %}  <!-- Always include this in forms -->
+    
+    <!-- Form fields here -->
+    {{ form.as_p }}
+    
+    <button type="submit">Submit</button>
+</form>
+
+<!-- For AJAX requests -->
+<script>
+    const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+    
+    fetch('/your-endpoint/', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': csrftoken
+        },
+        body: JSON.stringify({data: 'your data'})
+    });
+</script>

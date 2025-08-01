@@ -9,15 +9,15 @@ def book_list(request):
 
 @permission_required('bookshelf.can_create', raise_exception=True)
 def create_book(request):
-    # Example: form logic here
+    
     return render(request, 'bookshelf/create_book.html')
 
 @permission_required('bookshelf.can_edit', raise_exception=True)
 def edit_book(request, pk):
-    # Example: edit logic here
+   
     return render(request, 'bookshelf/edit_book.html')
 
 @permission_required('bookshelf.can_delete', raise_exception=True)
 def delete_book(request, pk):
-    # Example: delete logic here
+  
     return render(request, 'bookshelf/delete_book.html')

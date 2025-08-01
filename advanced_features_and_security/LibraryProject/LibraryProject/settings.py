@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'bookshelf',
     'relationship_app',
+    'csp',
 ]
 
 
@@ -61,6 +62,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'csp.middleware.CSPMiddleware',
 ]
 
 ROOT_URLCONF = 'LibraryProject.urls'
@@ -149,3 +151,12 @@ SECURE_CONTENT_TYPE_NOSNIFF = True
 # These require HTTPS in production
 CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True
+
+# Prevent XSS in older browsers
+SECURE_BROWSER_XSS_FILTER = True
+
+# Prevent clickjacking
+X_FRAME_OPTIONS = 'DENY'
+
+# Avoid content-type sniffing
+SECURE_CONTENT_TYPE_NOSNIFF = True

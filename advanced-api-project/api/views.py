@@ -12,7 +12,7 @@ class BookListView(generics.ListAPIView):
     """
     queryset = Book.objects.all()
     serializer_class = BookSerializer
-    # permission_classes = [AllowAny]
+    permission_classes = [IsAuthenticatedOrReadOnly]
 
 
 class BookCreateView(generics.CreateAPIView):
@@ -34,7 +34,7 @@ class BookDetailView(generics.RetrieveAPIView):
     """
     queryset = Book.objects.all()
     serializer_class = BookSerializer
-    # permission_classes = [AllowAny]
+    permission_classes = [IsAuthenticatedOrReadOnly]
 
 
 class BookUpdateView(generics.UpdateAPIView):

@@ -19,7 +19,7 @@ class Book(models.Model):
     can have many Books.
     """
     title = models.CharField(max_length=225)
-    publication_year = models.ImageField()
+    publication_year = models.IntegerField()
     author = models.ForeignKey(Author, on_delete=models.CASCADE, related_name='books')
 
     def __str__(self):

@@ -11,9 +11,10 @@ class UserRegistrationSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ('id', 'username', 'email', 'password')
+        extra_kwargs = {'password': {'write_only': True}}
 
     def create(self, validated_data):
-        # Create the user using the safe create_user method
+        # Use get_user_model().objects.create_user() to safely create a new user
         user = User.objects.create_user(
             username=validated_data['username'],
             email=validated_data.get('email', ''),
@@ -22,6 +23,7 @@ class UserRegistrationSerializer(serializers.ModelSerializer):
         # Create a token for the new user and return it
         Token.objects.create(user=user)
         return user
+
 
 class LoginSerializer(serializers.Serializer):
     username = serializers.CharField()

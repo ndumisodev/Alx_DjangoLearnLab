@@ -1,4 +1,4 @@
-Alx_Djanfrom django.db import models
+from django.db import models
 from django.conf import settings
 
 # Create your models here.
@@ -32,4 +32,4 @@ class Like(models.Model):
         unique_together = ('post', 'user')
     
     def __str__(self):
-        return f"{self.user.username} liked {self.post.title}"goLearnLab
+        return f"{self.user.username} liked {self.post.title}"

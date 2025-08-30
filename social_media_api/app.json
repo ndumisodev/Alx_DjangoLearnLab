@@ -1,0 +1,24 @@
+
+{
+  "name": "Social Media API",
+  "description": "A Django REST Framework Social Media API",
+  "image": "heroku/python",
+  "repository": "https://github.com/your-username/social_media_api",
+  "keywords": ["python", "django", "rest", "api"],
+  "addons": [
+    "heroku-postgresql"
+  ],
+  "env": {
+    "SECRET_KEY": {
+      "description": "Django secret key",
+      "generator": "secret"
+    },
+    "DJANGO_PRODUCTION": {
+      "description": "Production environment flag",
+      "value": "True"
+    }
+  },
+  "scripts": {
+    "postdeploy": "python manage.py migrate"
+  }
+}
